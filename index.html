@@ -1,81 +1,233 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css" />
 
-    <!-- cdnからjquery読み込み -->
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.js"
-      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-      crossorigin="anonymous"
-    ></script>
-    
-    <script src="./js/main.js"></script>
-    <title>トップページ</title>
-  </head>
-  <body>
-    <header>
-      <div class="inner">
-        <div id="menu_btn"></div>
-        <p id="header_logo">
-          <a href="./index.html"><img src="./images/logo.svg" alt="" /></a>
-        </p>
-        <ul id="global_menu">
-          <li><a href="./profile.html">profile</a></li>
-          <li><a href="./works.html">works</a></li>
-          <li><a href="./slide.html">slide</a></li>
-          <li><a href="./report.html">report</a></li>
-        </ul>
-      </div>
-    </header>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hikaru. | Portforio</title>
+    <link rel="icon" href="images/favicon.ico" id="favicon">
+    <!-- fontawesame -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
+    <!-- css -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
 
-    <div class="top_eye_catch">サイトの名前など</div>
+    <!-- 画像 -->
+    <link rel="Portforio/images" href="images">
+    <link rel="Portforio/images_works" href="images_works">
 
-    <div class="contents">
-      <section class="sec">
-        <h2>更新履歴</h2>
-        <ul>
-          <li><a href="./report.html">レポートを追加しました</a></li>
-          <li><a href="./works.html">WORKSページを追加しました</a></li>
-        </ul>
-      </section>
+    <!-- フォント -->
+    <link rel="stylesheet" href="https://use.typekit.net/kml0oaq.css">
+    <script>
+        (function(d) {
+            var config = {
+                    kitId: 'brx8uzy',
+                    scriptTimeout: 3000,
+                    async: true
+                },
+                h = d.documentElement,
+                t = setTimeout(function() {
+                    h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+                }, config.scriptTimeout),
+                tk = d.createElement("script"),
+                f = false,
+                s = d.getElementsByTagName("script")[0],
+                a;
+            h.className += " wf-loading";
+            tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
+            tk.async = true;
+            tk.onload = tk.onreadystatechange = function() {
+                a = this.readyState;
+                if (f || a && a != "complete" && a != "loaded") return;
+                f = true;
+                clearTimeout(t);
+                try {
+                    Typekit.load(config)
+                } catch (e) {}
+            };
+            s.parentNode.insertBefore(tk, s)
+        })(document);
+    </script>
+    <script>
+        (function(d) {
+            var config = {
+                    kitId: 'brx8uzy',
+                    scriptTimeout: 3000,
+                    async: true
+                },
+                h = d.documentElement,
+                t = setTimeout(function() {
+                    h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+                }, config.scriptTimeout),
+                tk = d.createElement("script"),
+                f = false,
+                s = d.getElementsByTagName("script")[0],
+                a;
+            h.className += " wf-loading";
+            tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
+            tk.async = true;
+            tk.onload = tk.onreadystatechange = function() {
+                a = this.readyState;
+                if (f || a && a != "complete" && a != "loaded") return;
+                f = true;
+                clearTimeout(t);
+                try {
+                    Typekit.load(config)
+                } catch (e) {}
+            };
+            s.parentNode.insertBefore(tk, s)
+        })(document);
+    </script>
+    <!--  -->
 
-      <section class="sec">
-        <h2>MENU</h2>
-        <div class="link_menu">
-          <div class="each_link">
-            <div class="link_pic">
-              <img src="./images/toy01.jpg" />
-            </div>
-            <div class="link_txt">
-              <p class="link_title">PROFILE</p>
-              <div>
-                これまでの経歴を紹介しますダミーテキストこれまでの経歴を紹介しますダミーテキストこれまでの経歴を紹介しますダミーテキストこれまでの経歴を紹介しますダミーテキスト<br />
-                これまでの経歴を紹介しますダミーテキストこれまでの経歴を紹介しますダミーテキスト
-              </div>
-              <a class="link_btn" href="./profile.html">Go!</a>
-            </div>
-          </div>
+</head>
 
-          <div class="each_link">
-            <div class="link_pic">
-              <img src="./images/toy02.jpg" />
-            </div>
-            <div class="link_txt">
-              <p class="link_title">WORKS</p>
-              <div>
-                作品を紹介しますダミーテキスト作品を紹介しますダミーテキスト作品を紹介しますダミーテキスト作品を紹介しますダミーテキスト作品を紹介しますダミーテキスト作品を紹介しますダミーテキスト
-              </div>
-              <a class="link_btn" href="./works.html">Go!</a>
-            </div>
-          </div>
-        </div>
-      </section>
+<body>
+    <!-- マウスストーカー -->
+    <div id="stalker"></div>
+    <!-- プログレスバー -->
+    <div class="progress">
+        <div class="progress__bar"></div>
     </div>
+    <!-- プログレスバーここまで -->
+    <header>
+        <!-- ロード -->
+        <div id="loding">
+            <div class="spinner"></div>
+        </div>
+        <!-- ロードここまで -->
+        <!-- ヘッダー画像親要素 -->
+        <div class="top_img_wrap">
+            <div class="top_title_wrap">
+                <h1 class="top_title_style">Hikaru.</h1>
+            </div>
 
-    <footer>名前など</footer>
-  </body>
+            <!-- <img src="images/top.png" alt="top-img" class="top_img"> -->
+            <div class="top_img">
+                <video id="video" src="video/top_sum.mp4" autoplay muted muted loop></video>
+            </div>
+
+
+            <div class="sns_section">
+                <div class="twitter_wrap">
+                    <a href="https://twitter.com/PikaPika_67"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="70px" height="70px">
+                        <path id="前面オブジェクトで型抜き_3" class="twitter" data-name="前面オブジェクトで型抜き 3" d="M20,40A20.005,20.005,0,0,1,12.215,1.572a20.005,20.005,0,0,1,15.57,36.857A19.875,19.875,0,0,1,20,40ZM8.4,27.461a14.353,14.353,0,0,0,7.773,2.281h.01a14.45,14.45,0,0,0,6.75-1.589,13.847,13.847,0,0,0,4.7-4.024l.025-.03c.2-.272.411-.578.654-.961l.051-.076c.027-.039.054-.079.079-.121.164-.269.326-.563.525-.955.017-.033.035-.065.053-.1s.052-.094.076-.143c.188-.384.364-.788.522-1.2l.006-.013a14.582,14.582,0,0,0,1.01-5.243c0-.206,0-.42-.015-.654a10.3,10.3,0,0,0,2.09-2.024l0,0c.152-.187.308-.38.452-.578l-.02.006a.066.066,0,0,1-.023.006l.009-.012A.315.315,0,0,0,33.15,12a10.094,10.094,0,0,1-2.3.7c-.207.032-.4.054-.578.069a5.09,5.09,0,0,0,1.9-2.1,5.47,5.47,0,0,0,.3-.663l0,0-.024.012a.049.049,0,0,1,.009-.023.086.086,0,0,0,.008-.016,10.126,10.126,0,0,1-3.225,1.233,5.073,5.073,0,0,0-8.668,4.538.445.445,0,0,0,.007.069l0,.023a14.357,14.357,0,0,1-9.5-4.25,14,14,0,0,1-.933-1.045v.008l-.02-.021a5.066,5.066,0,0,0,.908,6.239,5.408,5.408,0,0,0,.627.536A5.075,5.075,0,0,1,9.4,16.692v.064a5.079,5.079,0,0,0,2.963,4.6,5.206,5.206,0,0,0,1.065.388,4.753,4.753,0,0,1-2.142.092l-.041-.009a.418.418,0,0,1-.045-.01v.011H11.17a5.236,5.236,0,0,0,4.721,3.542,10.23,10.23,0,0,1-6.27,2.159H9.606c-.341,0-.681-.03-.973-.057l-.088-.013a1.171,1.171,0,0,1-.136-.023l.042.026Z"/>
+                      </svg></a>
+                </div>
+                <div class="instagram_wrap">
+                    <a href="https://www.instagram.com/hikaru.loa"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="70px" height="70px">
+                        <path id="前面オブジェクトで型抜き_4" class="instagram" data-name="前面オブジェクトで型抜き 4" d="M20,40A20.005,20.005,0,0,1,12.215,1.572,20.005,20.005,0,0,1,27.784,38.429,19.873,19.873,0,0,1,20,40ZM15.2,8.521a6.5,6.5,0,0,0-6.487,6.49v9.98A6.494,6.494,0,0,0,15.2,31.479h9.6a6.5,6.5,0,0,0,6.487-6.488V15.009A6.5,6.5,0,0,0,24.8,8.521Zm9.6,20.653H15.2a4.192,4.192,0,0,1-4.184-4.184V15.009A4.2,4.2,0,0,1,15.2,10.825h9.6a4.194,4.194,0,0,1,4.184,4.184v9.982A4.191,4.191,0,0,1,24.8,29.175ZM20,14.089A5.912,5.912,0,1,0,25.912,20,5.917,5.917,0,0,0,20,14.089Zm6.085-1.5a1.324,1.324,0,1,0,1.324,1.324A1.325,1.325,0,0,0,26.085,12.591ZM20,24.071A4.07,4.07,0,1,1,24.071,20,4.074,4.074,0,0,1,20,24.071Z"/>
+                      </svg></a>
+                </div>
+            </div>
+        </div>
+        <!-- ヘッダー画像親要素ここまで -->
+        <div class="header_section">
+            <h1 class="title"><a href="index.html" class="title_style">Hikaru.</a></h1>
+            <nav class="nav">
+                <ul class="menu_group">
+                    <li class="menu_item"><a href="profile.html" class="header_profile">Profile</a></li>
+                    <li class="menu_item"><a href="works.html" class="header_works">Works</a></li>
+                    <li class="menu_item">
+                        <a href="mailto:tu.yamatamago@gmail.com" class="header_contact">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="main_profile_section">
+            <!-- タイトル -->
+            <div class="main_title_wrap">
+                <h2 class="main_title">自分に正直に生きてゆく</h2>
+            </div>
+            <!--  -->
+            <!-- テキスト -->
+            <div class="main_text_wrap">
+                <p class="main_text">どうすれば幸せな人生を送れるのか。どうすれば後悔しない選択をできるのか。<br>そんなことを考える僕が今出せる結論がこれでした。
+                    <br><span class="main_text_strong">「自分に正直に生きる」</span><br> 進路など、これからの人生もこれまでの人生も選択だらけです。 こうやってサイトを作っているのも選択。この選択を後悔しないように選ぶのは、自分に正直に生きるのが一番だと思います。
+                </p>
+            </div>
+            <!--  -->
+            <!-- 花火 -->
+            <div class="hanabi1_wrap fade">
+                <img class="hanabi1" src="images/hanabi1.svg" alt="hanabi1">
+            </div>
+            <div class="hanabi_wrap fade">
+                <img class="hanabi" src="images/hanabi.svg" alt="hanabi">
+            </div>
+
+            <!--  -->
+            <!-- ボタン -->
+            <div class="button02">
+                <a href="profile.html">もっと見る</a>
+            </div>
+            <!--  -->
+
+            <div class="stick_wrap">
+                <p class="stick1"></p>
+                <p class="stick2"></p>
+                <p class="stick3"></p>
+            </div>
+        </section>
+
+        <!-- ここからトップのワークス -->
+        <section class="section-primary">
+            <div class="home-attraction">
+                <div class="image fade-in is-visible">
+                    <div class="for-large">
+                        <img src="images/works_large.png" alt="">
+                    </div>
+
+                </div>
+                <div class="head fade-in is-visible">
+                    <h2 class="headding-primary">
+                        <span class="en">Works</span>
+                        <span class="jp">こんなデザイン</span>
+                    </h2>
+                </div>
+                <div class="content">
+                    <h3 class="headding-secondary fade-in is-visible">これまで制作した成果物たち</h3>
+                    <p class="main_works_text fade-in">
+                        僕は優しくてシンプルなデザインが好きです。<br> 16歳からWebデザインを学び始めて一年目になりました。もうすぐ高校も卒業です。これからも、もっと良いサイトを作れるように日々精進したいと思います。
+                    </p>
+                    <div class="button02 fade-in">
+                        <a href="works.html">成果物一覧へ</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- ここまでトップのワークス -->
+
+        <!-- 上に登るボタン -->
+        <div id="page_top" class="page_top">
+            <a></a>
+        </div>
+        <!--  -->
+
+        <section class="main_contact_container">
+            <div class="main_contact_title_wrap">
+                <h3 class="main_contact_title">Contact</h3>
+                <p class="main_contact_subtitle">お問い合わせ</p>
+            </div>
+            <div class="main_contact_text_wrap">
+                <p class="main_contact_day">2021.10.20</p>
+                <p class="main_contact_text">ご依頼・ご質問などはこちらへ</p>
+            </div>
+            <div class="contact_button_wrap">
+                <a href="mailto:tu.yamatamago@gmail.com">メールへ</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer_wrap">
+            <p class="footer_text">Hikaru Portfolio 2021
+            </p>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+
 </html>

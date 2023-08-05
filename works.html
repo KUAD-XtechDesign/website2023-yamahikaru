@@ -1,86 +1,766 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- cdnからjquery読み込み -->
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.js"
-      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-      crossorigin="anonymous"
-    ></script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hikaru. | Works</title>
+    <link rel="icon" href="images/favicon.ico" id="favicon">
+    <!-- fontawesame -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
 
-    <!-- cdnからlity読み込み https://sorgalla.com/lity/ -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.1/lity.min.css"
-      integrity="sha512-UiVP2uTd2EwFRqPM4IzVXuSFAzw+Vo84jxICHVbOA1VZFUyr4a6giD9O3uvGPFIuB2p3iTnfDVLnkdY7D/SJJQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.1/lity.min.js"
-      integrity="sha512-UU0D/t+4/SgJpOeBYkY+lG16MaNF8aqmermRIz8dlmQhOlBnw6iQrnt4Ijty513WB3w+q4JO75IX03lDj6qQNA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
+    <!-- css -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
 
-    <link rel="stylesheet" href="./css/style.css" />
-    <script src="./js/main.js"></script>
-    <title>リストページ</title>
-  </head>
-  <body class="contents_page">
+    <!-- 画像 -->
+    <link rel="Portforio/images" href="images">
+    <link rel="Portforio/images_works" href="images_works">
+
+    <!-- フォント -->
+    <link rel="stylesheet" href="https://use.typekit.net/kml0oaq.css">
+    <script>
+        (function(d) {
+            var config = {
+                    kitId: 'brx8uzy',
+                    scriptTimeout: 3000,
+                    async: true
+                },
+                h = d.documentElement,
+                t = setTimeout(function() {
+                    h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+                }, config.scriptTimeout),
+                tk = d.createElement("script"),
+                f = false,
+                s = d.getElementsByTagName("script")[0],
+                a;
+            h.className += " wf-loading";
+            tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
+            tk.async = true;
+            tk.onload = tk.onreadystatechange = function() {
+                a = this.readyState;
+                if (f || a && a != "complete" && a != "loaded") return;
+                f = true;
+                clearTimeout(t);
+                try {
+                    Typekit.load(config)
+                } catch (e) {}
+            };
+            s.parentNode.insertBefore(tk, s)
+        })(document);
+    </script>
+    <script>
+        (function(d) {
+            var config = {
+                    kitId: 'brx8uzy',
+                    scriptTimeout: 3000,
+                    async: true
+                },
+                h = d.documentElement,
+                t = setTimeout(function() {
+                    h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+                }, config.scriptTimeout),
+                tk = d.createElement("script"),
+                f = false,
+                s = d.getElementsByTagName("script")[0],
+                a;
+            h.className += " wf-loading";
+            tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
+            tk.async = true;
+            tk.onload = tk.onreadystatechange = function() {
+                a = this.readyState;
+                if (f || a && a != "complete" && a != "loaded") return;
+                f = true;
+                clearTimeout(t);
+                try {
+                    Typekit.load(config)
+                } catch (e) {}
+            };
+            s.parentNode.insertBefore(tk, s)
+        })(document);
+    </script>
+    <!--  -->
+</head>
+
+<body>
+    <!-- マウスストーカー -->
+    <div id="stalker"></div>
+    <!-- プログレスバー -->
+    <div class="progress">
+        <div class="progress__bar"></div>
+    </div>
+    <!-- プログレスバーここまで -->
+
     <header>
-      <div class="inner">
-        <div id="menu_btn"></div>
-        <p id="header_logo">
-          <a href="./index.html"><img src="./images/logo.svg" alt="" /></a>
-        </p>
-        <ul id="global_menu">
-          <li><a href="./profile.html">profile</a></li>
-          <li class="current"><a href="./works.html">works</a></li>
-          <li><a href="./slide.html">slide</a></li>
-          <li><a href="./report.html">report</a></li>
-        </ul>
-      </div>
+        <!-- ロード -->
+        <div id="loding">
+            <div class="spinner"></div>
+        </div>
+        <!-- ロードここまで -->
+        <div class="profile_top_img_container">
+            <div class="profile_top_img_wrap works_top_img_wrap">
+                <!-- <img src="images/works_top.png" alt=""> -->
+                <video id="video" src="video/works.mp4" autoplay muted muted loop></video>
+
+                <div class="profile_top_title">
+                    <h1 class="profile_top_title_style">WORKS</h1>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- SNSリンク -->
+        <div class="profile_sns_section">
+            <div class="profile_twitter_wrap">
+                <a href="https://twitter.com/PikaPika_67"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="70px" height="70px">
+                <path id="前面オブジェクトで型抜き_3" class="profile_twitter" data-name="前面オブジェクトで型抜き 3" d="M20,40A20.005,20.005,0,0,1,12.215,1.572a20.005,20.005,0,0,1,15.57,36.857A19.875,19.875,0,0,1,20,40ZM8.4,27.461a14.353,14.353,0,0,0,7.773,2.281h.01a14.45,14.45,0,0,0,6.75-1.589,13.847,13.847,0,0,0,4.7-4.024l.025-.03c.2-.272.411-.578.654-.961l.051-.076c.027-.039.054-.079.079-.121.164-.269.326-.563.525-.955.017-.033.035-.065.053-.1s.052-.094.076-.143c.188-.384.364-.788.522-1.2l.006-.013a14.582,14.582,0,0,0,1.01-5.243c0-.206,0-.42-.015-.654a10.3,10.3,0,0,0,2.09-2.024l0,0c.152-.187.308-.38.452-.578l-.02.006a.066.066,0,0,1-.023.006l.009-.012A.315.315,0,0,0,33.15,12a10.094,10.094,0,0,1-2.3.7c-.207.032-.4.054-.578.069a5.09,5.09,0,0,0,1.9-2.1,5.47,5.47,0,0,0,.3-.663l0,0-.024.012a.049.049,0,0,1,.009-.023.086.086,0,0,0,.008-.016,10.126,10.126,0,0,1-3.225,1.233,5.073,5.073,0,0,0-8.668,4.538.445.445,0,0,0,.007.069l0,.023a14.357,14.357,0,0,1-9.5-4.25,14,14,0,0,1-.933-1.045v.008l-.02-.021a5.066,5.066,0,0,0,.908,6.239,5.408,5.408,0,0,0,.627.536A5.075,5.075,0,0,1,9.4,16.692v.064a5.079,5.079,0,0,0,2.963,4.6,5.206,5.206,0,0,0,1.065.388,4.753,4.753,0,0,1-2.142.092l-.041-.009a.418.418,0,0,1-.045-.01v.011H11.17a5.236,5.236,0,0,0,4.721,3.542,10.23,10.23,0,0,1-6.27,2.159H9.606c-.341,0-.681-.03-.973-.057l-.088-.013a1.171,1.171,0,0,1-.136-.023l.042.026Z"/>
+              </svg></a>
+            </div>
+            <div class="profile_instagram_wrap">
+                <a href="https://www.instagram.com/hikaru.loa"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="70px" height="70px">
+                <path id="前面オブジェクトで型抜き_4" class="profile_instagram" data-name="前面オブジェクトで型抜き 4" d="M20,40A20.005,20.005,0,0,1,12.215,1.572,20.005,20.005,0,0,1,27.784,38.429,19.873,19.873,0,0,1,20,40ZM15.2,8.521a6.5,6.5,0,0,0-6.487,6.49v9.98A6.494,6.494,0,0,0,15.2,31.479h9.6a6.5,6.5,0,0,0,6.487-6.488V15.009A6.5,6.5,0,0,0,24.8,8.521Zm9.6,20.653H15.2a4.192,4.192,0,0,1-4.184-4.184V15.009A4.2,4.2,0,0,1,15.2,10.825h9.6a4.194,4.194,0,0,1,4.184,4.184v9.982A4.191,4.191,0,0,1,24.8,29.175ZM20,14.089A5.912,5.912,0,1,0,25.912,20,5.917,5.917,0,0,0,20,14.089Zm6.085-1.5a1.324,1.324,0,1,0,1.324,1.324A1.325,1.325,0,0,0,26.085,12.591ZM20,24.071A4.07,4.07,0,1,1,24.071,20,4.074,4.074,0,0,1,20,24.071Z"/>
+              </svg></a>
+            </div>
+        </div>
+        <!--  -->
+        <!-- ヘッダーnav -->
+        <div class="header_section">
+            <h1 class="title1"><a href="index.html" class="title_style1">Hikaru.</a></h1>
+            <nav class="nav">
+                <ul class="menu_group">
+                    <li class="menu_item"><a href="profile.html" class="header_profile1">Profile</a></li>
+                    <li class="menu_item"><a href="works.html" class="header_works1">Works</a></li>
+                    <li class="menu_item">
+                        <a href="mailto:tu.yamatamago@gmail.com" class="header_contact1">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!--  -->
+
     </header>
+    <main>
+        <!-- ここからサイトデザインセクション -->
+        <!-- ここから01タイトル -->
+        <section class="works_web_section">
+            <div class="works_web_title_wrap">
+                <h2><span class="works_web_title_span">01</span> Webサイトデザイン</h2>
+            </div>
+        </section>
+        <!-- ここまで01タイトル -->
+        <!-- ここからサイトデザインフレックスボックス -->
+        <section class="works_main_container">
+            <!-- ここからサイトデザイン0 -->
+            <div class="works_main_wrap fade-in">
+                <div class="works_main_png_box">
 
-    <section>
-      <div class="report_eye_catch">works</div>
-      <div class="contents">
-        <h2>WORKS</h2>
-        <ul class="thumb_list">
-          <li>
-            <a href="./images/toy01.jpg" data-lity
-              ><img src="./images/toy01.jpg" alt="サムネイル"
-            /></a>
-          </li>
-          <li>
-            <a href="./images/toy02.jpg" data-lity
-              ><img src="./images/toy02.jpg" alt="サムネイル"
-            /></a>
-          </li>
-          <li>
-            <a href="./images/toy03.jpg" data-lity
-              ><img src="./images/toy03.jpg" alt="サムネイル"
-            /></a>
-          </li>
-          <li>
-            <a href="./images/toy04.jpg" data-lity
-              ><img src="./images/toy04.jpg" alt="サムネイル"
-            /></a>
-          </li>
-          <li>
-            <a href="./images/toy03.jpg" data-lity
-              ><img src="./images/toy03.jpg" alt="サムネイル"
-            /></a>
-          </li>
-        </ul>
-      </div>
-    </section>
+                    <a href="n-fes.html">
+                        <img src="images_works/site_design_0.png" alt="works_main_png1" class="works_main_png1">
+                        <div class="works_main_white_box" id="whitebox0">
+                            <h3 class="works_main_white_box_2">N/S校 京都キャンフェス2021</h3>
+                        </div>
+                    </a>
 
-    <footer>名前など</footer>
-  </body>
+                    <div class="works_main_text_box">
+                        <p class="works_main_text">N/S校 京都キャンフェス2021</p>
+                        <p class="works_main_text_day">2021.12.05</p>
+                    </div>
+                </div>
+            </div>
+            <!-- ここまでサイトデザイン0 -->
+
+            <!-- ここからサイトデザイン1 -->
+            <div class="works_main_wrap fade-in">
+                <div class="works_main_png_box">
+
+                    <a href="portforio.ver3.html">
+                        <img src="images_works/site_design_1.png" alt="works_main_png1" class="works_main_png1">
+                        <div class="works_main_white_box" id="whitebox">
+                            <h3 class="works_main_white_box_1">Portforio.ver3</h3>
+                        </div>
+                    </a>
+
+                    <div class="works_main_text_box">
+                        <p class="works_main_text">Portforio.ver3</p>
+                        <p class="works_main_text_day">2021.10.08</p>
+                    </div>
+                </div>
+            </div>
+            <!-- ここまでサイトデザイン1 -->
+
+            <!-- ここからサイトデザイン2 -->
+            <div class="works_main_wrap fade-in">
+                <div class="works_main_png_box">
+                    <a href="escape.html">
+                        <img src="images_works/site_design_2.png" alt="works_main_png1" class="works_main_png1">
+                        <div class="works_main_white_box" id="whitebox1">
+                            <h3 class="works_main_white_box_1">オンラインリアル脱出ゲーム</h3>
+                        </div>
+                    </a>
+                    <div class="works_main_text_box">
+                        <p class="works_main_text">オンラインリアル脱出ゲーム</p>
+                        <p class="works_main_text_day">2021.09.18</p>
+                    </div>
+                </div>
+            </div>
+            <!-- ここまでサイトデザイン2 -->
+
+            <!-- ここからサイトデザイン3 -->
+            <div class="works_main_wrap fade-in">
+                <div class="works_main_siteA">
+                    <div class="works_main_png_box">
+                        <a href="chacha.html">
+                            <img src="images_works/site_design_3.png" alt="works_main_png1" class="works_main_png1">
+                            <div class="works_main_white_box" id="whitebox2">
+                                <h3 class="works_main_white_box_1">抹茶屋 茶々</h3>
+                            </div>
+                        </a>
+                        <div class="works_main_text_box">
+                            <p class="works_main_text">抹茶屋 茶々</p>
+                            <p class="works_main_text_day">2021.08.10</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ここまでサイトデザイン3 -->
+
+            <div class="works_main_wrap fade-in">
+                <div class="works_main_siteA">
+                    <div class="works_main_png_box">
+                        <a href="dentou.html">
+                            <img src="images_works/dentou.png" alt="works_main_png1" class="works_main_png1">
+                            <div class="works_main_white_box" id="whitebox24">
+                                <h3 class="works_main_white_box_1">伝統芸能の形を見に行こう</h3>
+                            </div>
+                        </a>
+                        <div class="works_main_text_box">
+                            <p class="works_main_text"> 伝統芸能の形を見に行こう</p>
+                            <p class="works_main_text_day">2021.03.20</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ここからサイトデザイン4 -->
+            <div class="works_main_wrap fade-in">
+                <div class="works_main_siteA">
+                    <div class="works_main_png_box">
+                        <a href="portforio.ver2.html">
+                            <img src="images_works/site_design_4.png" alt="works_main_png1" class="works_main_png1">
+                            <div class="works_main_white_box" id="whitebox3">
+                                <h3 class="works_main_white_box_1">Portforio.ver2</h3>
+                            </div>
+                        </a>
+                        <div class="works_main_text_box">
+                            <p class="works_main_text"> Portforio.ver2</p>
+                            <p class="works_main_text_day">2020.12.21</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ここまでサイトデザイン4 -->
+
+
+
+
+            <!-- ここからサイトデザイン5 -->
+            <div class="works_main_wrap fade-in">
+                <div class="works_main_siteA">
+                    <div class="works_main_png_box">
+                        <a href="portforio.ver1.html">
+                            <img src="images_works/site_design_5.png" alt="works_main_png1" class="works_main_png1">
+                            <div class="works_main_white_box" id="whitebox4">
+                                <h3 class="works_main_white_box_1"> Portforio.ver1</h3>
+                            </div>
+                        </a>
+                        <div class="works_main_text_box">
+                            <p class="works_main_text">Portforio.ver1</p>
+                            <p class="works_main_text_day">2020.11.30</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ここまでサイトデザイン5 -->
+
+            <!-- ここからサイトデザイン6 -->
+            <div class="works_main_wrap fade-in">
+                <div class="works_main_siteA">
+                    <div class="works_main_png_box">
+                        <a href="site_remake.html"><img src="images_works/site_design_6.png" alt="works_main_png1" class="works_main_png1">
+                            <div class="works_main_white_box" id="whitebox5">
+                                <h3 class="works_main_white_box_2">サイトリメイク</h3>
+                            </div>
+                        </a>
+                        <div class="works_main_text_box">
+                            <p class="works_main_text">サイトリメイク</p>
+                            <p class="works_main_text_day">2020.10.30</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ここまでサイトデザイン6 -->
+
+            <!-- ここからサイトデザイン7 -->
+            <div class="works_main_wrap fade-in">
+                <div class="works_main_siteA">
+                    <div class="works_main_png_box">
+                        <a href="furst-site.html">
+                            <img src="images_works/site_design_7.png" alt="works_main_png1" class="works_main_png1">
+                            <div class="works_main_white_box" id="whitebox6">
+                                <h3 class="works_main_white_box_1">初めてのWebサイト</h3>
+                            </div>
+                        </a>
+                        <div class="works_main_text_box">
+                            <p class="works_main_text">初めてのWebサイト</p>
+                            <p class="works_main_text_day">2020.09.28</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ここまでサイトデザイン7 -->
+
+            <!-- ここから空白のやつ -->
+            <div class="works_main_wrap fade-in">
+                <div class="works_main_fake"></div>
+            </div>
+            <!-- ここまで空白のやつ -->
+
+        </section>
+        <!-- ここまでサイトデザインフレックスボックス -->
+        <!--ここまでサイトデザインセクション -->
+
+        <!-- ここから学校の成果物コンテナ -->
+        <section class="works_school_container">
+
+            <!-- ここから02タイトル -->
+            <div class="works_school_title_wrap">
+                <h2><span class="works_web_title_span">02</span> 学校の成果物</h2>
+            </div>
+            <!-- ここまで02タイトル -->
+
+            <!-- ここからプロN紹介セクション -->
+            <div class="works_school_proN_wrap">
+                <!-- ここから画像 -->
+                <div class="works_main_png_box">
+                    <a href="proN_escape.html">
+                        <img src="images_works/site_design_2.png" alt="works_main_png1" class="works_main_png1">
+                        <div class="works_main_white_box" id="whitebox7">
+                            <h3 class="works_main_white_box_1">オンライン脱出ゲーム</h3>
+                        </div>
+                    </a>
+                    <div class="works_school_proN_img_text_box">
+                        <p class="works_school_proN_img_text">オンライン脱出ゲーム</p>
+                        <p class="works_school_proN_img_day">2021.09.18</p>
+                    </div>
+                </div>
+                <!-- ここまで画像 -->
+                <!-- ここからテキスト -->
+                <div class="works_school_proN_text_wrap">
+                    <div class="works_school_proN_title_wrap">
+                        <h2>プロジェクトN α,β</h2>
+                    </div>
+                    <div class="works_school_proN_text_box">
+                        <p>N高等学校で毎週月、水、金曜日に行っている授業です。<br> 思考力や表現力、ITスキルなどを身につけることを目標にしている授業で、生徒主体でプロジェクトが進められていきます。
+                        </p>
+                    </div>
+                </div>
+                <!-- ここまでテキスト -->
+            </div>
+
+            <!-- ここからプロN紹介のボタン -->
+            <div class="works_button_container">
+                <button class="works_button_wrap" id="works_button_wrap">
+                    <i class="fas fa-plus" id="faplus"></i>
+                    <p class="works_button_text">プロNα,βを見る</p>
+                </button>
+            </div>
+            <!-- ここまでプロN紹介のボタン -->
+
+            <!-- ここからプロN紹介中身 -->
+            <section class="works_school_proN_container" id="works_school_proN_container">
+                <!-- ここからプロN1 -->
+                <div class="works_main_wrap fade-in">
+                    <div class="works_main_png_box">
+                        <a href="space.html">
+                            <img src="images_works/proN_2.png" alt="works_main_png1" class="works_main_png1">
+                            <div class="works_main_white_box" id="whitebox10">
+                                <h3 class="works_main_white_box_2">宇宙の健康課題</h3>
+                            </div>
+                        </a>
+                        <div class="works_main_text_box">
+                            <p class="works_school_proN_img_text">宇宙の健康課題</p>
+                            <p class="works_school_proN_img_day">2021.07.12</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ここからプロN2 -->
+                <div class="works_main_wrap fade-in">
+                    <div class="works_main_png_box">
+                        <a href="nougyo.html">
+                            <img src="images_works/proN_3.png" alt="works_main_png1" class="works_main_png1">
+                            <div class="works_main_white_box" id="whitebox11">
+                                <h3 class="works_main_white_box_1">農業活性化プロジェクト</h3>
+                            </div>
+                        </a>
+                        <div class="works_main_text_box">
+                            <p class="works_school_proN_img_text">農業活性化プロジェクト</p>
+                            <p class="works_school_proN_img_day">2020.12.16</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- ここまでプロN2-->
+
+                <!-- ここからプロN3 -->
+                <div class="works_main_wrap fade-in">
+                    <div class="works_main_siteA">
+                        <div class="works_main_png_box">
+                            <a href="asobi.html">
+                                <img src="images_works/proN_4.png" alt="works_main_png1" class="works_main_png1">
+                                <div class="works_main_white_box" id="whitebox12">
+                                    <h3 class="works_main_white_box_1">コロナ禍での遊びを考える</h3>
+                                </div>
+                            </a>
+                            <div class="works_main_text_box">
+                                <p class="works_school_proN_img_text">コロナ禍での遊びを考える</p>
+                                <p class="works_school_proN_img_day">2020.09.15</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ここまでプロN3 -->
+
+                <!-- ここからプロN4 -->
+                <div class="works_main_wrap fade-in">
+                    <div class="works_main_siteA">
+                        <div class="works_main_png_box">
+                            <a href="desital.html">
+                                <img src="images_works/proN_5.png" alt="works_main_png1" class="works_main_png1">
+                                <div class="works_main_white_box" id="whitebox13">
+                                    <h3 class="works_main_white_box_1">マジカルフレーム</h3>
+                                </div>
+                            </a>
+                            <div class="works_main_text_box">
+                                <p class="works_school_proN_img_text">マジカルフレーム</p>
+                                <p class="works_school_proN_img_day">2020.07.29</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ここまでプロN4 -->
+            </section>
+            <!-- ここまでプロN紹介中身 -->
+
+            <!-- ここまでプロN紹介セクション -->
+
+
+            <!-- ここから木曜プロN紹介セクション -->
+            <div class="works_school_proN_wrap">
+                <!-- ここから画像 -->
+                <div class="works_main_png_box">
+                    <a href="reigi.html">
+                        <img src="images_works/poster-slide.png" alt="works_main_png1" class="works_main_png1">
+                        <div class="works_main_white_box" id="whitebox25">
+                            <h3 class="works_main_white_box_1">ビジネスマナーのポスター</h3>
+                        </div>
+                    </a>
+                    <div class="works_school_proN_img_text_box">
+                        <p class="works_school_proN_img_text">ビジネスマナーのポスター</p>
+                        <p class="works_school_proN_img_day">2021.11.25</p>
+                    </div>
+                </div>
+                <!-- ここまで画像 -->
+                <!-- ここからテキスト -->
+                <div class="works_school_proN_text_wrap">
+                    <div class="works_school_proN_title_wrap">
+                        <h2>木曜プロN</h2>
+                    </div>
+                    <div class="works_school_proN_text_box">
+                        <p>N高等学校で毎週木曜日に行っている授業です。<br> αやβと比べ、期間が短いのに比べ、動画編集やサイト作りなど、多種多様なことを学ぶことが出来る授業です。
+                        </p>
+                    </div>
+                </div>
+                <!-- ここまでテキスト -->
+            </div>
+
+            <!-- ここから木曜プロNの成果物ボタン -->
+            <div class="works_button_container">
+                <button class="works_button_wrap" id="works_button_wrap1">
+                    <i class="fas fa-plus" id="faplus1"></i>
+                    <p class="works_button_text">木曜プロNを見る</p>
+                </button>
+            </div>
+            <!-- ここまで木曜プロNの成果物ボタン -->
+
+            <!-- ここから木曜プロN中身 -->
+            <section class="works_school_proN_container" id="works_school_proN_container1">
+
+                <div class="works_main_wrap fade-in">
+                    <div class="works_main_png_box">
+                        <a href="spark.html">
+                            <img src="images_works/thursday_1.png" alt="works_main_png1" class="works_main_png1">
+                            <div class="works_main_white_box" id="whitebox8">
+                                <h3 class="works_main_white_box_1">AdobeSparkでサイトを作ろう</h3>
+                            </div>
+                        </a>
+                        <div class="works_main_text_box">
+                            <p class="works_school_proN_img_text">AdobeSparkでサイトを作ろう</p>
+                            <p class="works_school_proN_img_day">2021.10.15</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ここから木曜プロN1 -->
+                <div class="works_main_wrap fade-in">
+                    <div class="works_main_png_box">
+                        <a href="igaku.html">
+                            <img src="images_works/thursday_2.png" alt="works_main_png1" class="works_main_png1">
+                            <div class="works_main_white_box" id="whitebox14">
+                                <h3 class="works_main_white_box_1">未来型予防医学プロジェクト </h3>
+                            </div>
+                        </a>
+                        <div class="works_main_text_box">
+                            <p class="works_school_proN_img_text">未来型予防医学プロジェクト </p>
+                            <p class="works_school_proN_img_day">2021.06.24</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ここから木曜プロN2 -->
+                <div class="works_main_wrap fade-in">
+                    <div class="works_main_png_box">
+                        <a href="ijin.html">
+                            <img src="images_works/thursday_3.png" alt="works_main_png1" class="works_main_png1">
+                            <div class="works_main_white_box" id="whitebox15">
+                                <h3 class="works_main_white_box_1">偉人列伝</h3>
+                            </div>
+                        </a>
+                        <div class="works_main_text_box">
+                            <p class="works_school_proN_img_text">偉人列伝</p>
+                            <p class="works_school_proN_img_day">2021.03.04</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ここから木曜プロN3 -->
+                <div class="works_main_wrap fade-in">
+                    <div class="works_main_siteA">
+                        <div class="works_main_png_box">
+                            <a href="campus.html">
+                                <img src="images_works/thursday_4.png" alt="works_main_png1" class="works_main_png1">
+                                <div class="works_main_white_box" id="whitebox16">
+                                    <h3 class="works_main_white_box_1">キャンパスを作ろう</h3>
+                                </div>
+                            </a>
+                            <div class="works_main_text_box">
+                                <p class="works_school_proN_img_text">キャンパスを作ろう</p>
+                                <p class="works_school_proN_img_day">2020.10.29</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ここから木曜プロN4 -->
+                <div class="works_main_wrap fade-in">
+                    <div class="works_main_siteA">
+                        <div class="works_main_png_box">
+                            <a href="macbook.html">
+                                <img src="images_works/thursday_5.png" alt="works_main_png1" class="works_main_png1">
+                                <div class="works_main_white_box" id="whitebox17">
+                                    <h3 class="works_main_white_box_2">写真を編集しよう</h3>
+                                </div>
+                            </a>
+                            <div class="works_main_text_box">
+                                <p class="works_school_proN_img_text">写真を編集しよう</p>
+                                <p class="works_school_proN_img_day">2020.10.09</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ここから木曜プロN5 -->
+                <div class="works_main_wrap fade-in">
+                    <div class="works_main_siteA">
+                        <div class="works_main_png_box">
+                            <a href="cat.html">
+                                <img src="images_works/thursday_6.png" alt="works_main_png1" class="works_main_png1">
+                                <div class="works_main_white_box" id="whitebox18">
+                                    <h3 class="works_main_white_box_1">猫</h3>
+                                </div>
+                            </a>
+                            <div class="works_main_text_box">
+                                <p class="works_school_proN_img_text">猫</p>
+                                <p class="works_school_proN_img_day">2020.10.08</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ここから木曜プロN6 -->
+                <div class="works_main_wrap fade-in">
+                    <div class="works_main_siteA">
+                        <div class="works_main_png_box">
+                            <a href="meishi.html">
+                                <img src="images_works/thursday_7.png" alt="works_main_png1" class="works_main_png1">
+                                <div class="works_main_white_box" id="whitebox19">
+                                    <h3 class="works_main_white_box_1">家紋入り名刺を作ろう</h3>
+                                </div>
+                            </a>
+                            <div class="works_main_text_box">
+                                <p class="works_school_proN_img_text">家紋入り名刺を作ろう</p>
+                                <p class="works_school_proN_img_day">2020.10.07</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ここから空白のやつ -->
+                <div class="works_main_wrap fade-in">
+                    <div class="Thurs_fake"></div>
+                </div>
+                <!-- ここまで空白のやつ -->
+            </section>
+            <!-- ここまで木曜プロN中身 -->
+            <!-- ここまで木曜プロN紹介セクション -->
+
+
+            <!-- ここからその他セクション -->
+            <div class="works_school_proN_wrap">
+                <!-- ここから画像 -->
+                <div class="works_main_png_box">
+                    <a href="n-fes2020.html">
+                        <img src="images_works/others_1.png" alt="works_main_png1" class="works_main_png1">
+                        <div class="works_main_white_box" id="whitebox9">
+                            <h3 class="works_main_white_box_2">N/S校 京都キャンフェス2020</h3>
+                        </div>
+                    </a>
+                    <div class="works_school_proN_img_text_box">
+                        <p class="works_school_proN_img_text">N/S校 京都キャンフェス2020</p>
+                        <p class="works_school_proN_img_day">2020.11.29</p>
+                    </div>
+                </div>
+                <!-- ここまで画像 -->
+                <!-- ここからテキスト -->
+                <div class="works_school_proN_text_wrap">
+                    <div class="works_school_proN_title_wrap">
+                        <h2>その他</h2>
+                    </div>
+                    <div class="works_school_proN_text_box">
+                        <p>N高での授業外で制作した、制作物を載せています。
+                        </p>
+                    </div>
+                </div>
+                <!-- ここまでテキスト -->
+            </div>
+
+            <!-- ここからその他の成果物ボタン -->
+            <div class="works_button_container">
+                <button class="works_button_wrap" id="works_button_wrap2">
+                    <i class="fas fa-plus" id="faplus2"></i>
+                    <p class="works_button_text">その他を見る</p>
+                </button>
+            </div>
+            <!-- ここまでその他の成果物ボタン -->
+
+            <!-- ここからその他中身 -->
+            <section class="works_school_proN_container" id="works_school_proN_container2">
+                <!-- ここからその他1 -->
+                <!-- <div class="works_main_wrap fade-in">
+                    <div class="works_main_png_box">
+                        <a href="">
+                            <img src="images_works/others_2.png" alt="works_main_png1" class="works_main_png1">
+                            <div class="works_main_white_box" id="whitebox20">
+                                <h3 class="works_main_white_box_1">エンタメ専科</h3>
+                            </div>
+                        </a>
+                        <div class="works_main_text_box">
+                            <p class="works_school_proN_img_text">エンタメ専科</p>
+                            <p class="works_school_proN_img_day">2020.10.29</p>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- ここからその他2 -->
+                <div class="works_main_wrap fade-in">
+                    <div class="works_main_png_box">
+                        <a href="picture.html">
+                            <img src="images_works/others_3.png" alt="works_main_png1" class="works_main_png1">
+                            <div class="works_main_white_box" id="whitebox21">
+                                <h3 class="works_main_white_box_2">自由な絵</h3>
+                            </div>
+                        </a>
+                        <div class="works_main_text_box">
+                            <p class="works_school_proN_img_text">自由な絵</p>
+                            <p class="works_school_proN_img_day">2020.10.24</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ここからその他3 -->
+                <div class="works_main_wrap fade-in">
+                    <div class="works_main_siteA">
+                        <div class="works_main_png_box">
+                            <a href="movie.html">
+                                <img src="images_works/others_4.png" alt="works_main_png1" class="works_main_png1">
+                                <div class="works_main_white_box" id="whitebox22">
+                                    <h3 class="works_main_white_box_2">動画編集</h3>
+                                </div>
+                            </a>
+                            <div class="works_main_text_box">
+                                <p class="works_school_proN_img_text">動画編集</p>
+                                <p class="works_school_proN_img_day">2020.07.10</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ここからその他4 -->
+                <div class="works_main_wrap fade-in">
+                    <div class="works_main_siteA">
+                        <div class="works_main_png_box">
+                            <a href="panda.html">
+                                <img src="images_works/others_5.png" alt="works_main_png1" class="works_main_png1">
+                                <div class="works_main_white_box" id="whitebox23">
+                                    <h3 class="works_main_white_box_1">イラストレーター初作品</h3>
+                                </div>
+                            </a>
+                            <div class="works_main_text_box">
+                                <p class="works_school_proN_img_text">イラストレーター初作品</p>
+                                <p class="works_school_proN_img_day">2020.07.06</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ここから空白のやつ -->
+                <div class="works_main_wrap fade-in">
+                    <div class="Thurs_fake"></div>
+                </div>
+                <!-- ここまで空白のやつ -->
+
+
+            </section>
+            <!-- ここまでその他中身 -->
+
+            <!-- ここまでその他セクション -->
+
+
+        </section>
+
+        <!-- ここまで学校の成果物コンテナ -->
+
+        <!-- 上に登るボタン -->
+        <div id="page_top" class="page_top">
+            <a></a>
+        </div>
+        <!--  -->
+    </main>
+    <footer>
+        <div class="footer_wrap">
+            <p class="footer_text">Hikaru Portfolio 2021</p>
+        </div>
+    </footer>
+    <script src="js/works.js"></script>
+
+</body>
+
 </html>
